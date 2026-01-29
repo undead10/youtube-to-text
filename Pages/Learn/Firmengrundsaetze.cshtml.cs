@@ -1,0 +1,73 @@
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace YoutubeToText.Pages.Learn;
+
+public class FirmengrundsaetzeModel : PageModel
+{
+    public List<string> Sentences { get; } = new()
+    {
+        "Bevor ein Unternehmen mit seinem Geschäft so richtig starten kann, muss es die Firmengrundsätze beachten.",
+        "Was es damit auf sich hat, erfährst du jetzt.",
+        "Angenommen, du eröffnest eine Bäckerei.",
+        "Nennen wir sie Goldkruste.",
+        "Du hast das perfekte Rezept für knuspriges Brot, dein Team ist begeistert und du bist bereit loszulegen.",
+        "Doch dann kommt die Frage, darf deine Bäckerei diesen Namen überhaupt tragen?",
+        "Hier kommen die Firmengrundsätze ins Spiel.",
+        "Sie sind im Handelsgesetzbuch verankert und legen fest, welchen Namen ein Unternehmen führen darf.",
+        "Denn der Firmenname ist das Aushängeschild deines Geschäfts.",
+        "Er muss seriös und rechtlich einwandfrei sein.",
+        "Für Kunden, Lieferanten und Behörden.",
+        "Damit das Gewährleistet ist, gibt es fünf Firmengrundsätze.",
+        "Fangen wir mit dem ersten Grundsatz der Firmen Wahrheit an.",
+        "Als Bäckermeister bist du stolz auf deine Backstube und möchtest sie etwas größer wirken lassen.",
+        "Also überlegst du dir neue Namen.",
+        "Goldkruste-Großbäckerei GmbH.",
+        "Oder vielleicht sogar Dr. Mellas Feinkostbäckerei.",
+        "Klingt professionell, ist aber nicht erlaubt.",
+        "Denn hier greift der Grundsatz der Firmen Wahrheit.",
+        "Er steht in §18 HGB und stellt sicher, dass sein Firmenname Kunden oder Geschäftspartner nicht täuscht oder falsche Erwartungen weckt.",
+        "Der Name muss also zur Tätigkeit passen und darf keine falschen Angaben zurechts vormachen.",
+        "Eine Dorfbäckerei darf sich daher nicht Großbäckerei nennen und der Zusatz GmbH im Namen wäre nur erlaubt, wenn der Inhaber auch tatsächlich eine GmbH führt.",
+        "Außerdem ist es nicht zulässig, sich mit akademischen Titeln zu schmücken, die der Inhaber gar nicht besitzt.",
+        "Der Name Dr. Mellas Feinkostbäckerei fällt also ebenfalls weg.",
+        "Läuft deine Bäckerei aber richtig gut und du hast wirklich eine GmbH, kannst du das im Firmennamen erwähnen.",
+        "Als GmbH kommt aber noch etwas auf dich zu.",
+        "Der Eintrag ins Handelsregister.",
+        "Aber warum ist das notwendig?",
+        "Wegen dem Grundsatz der Firmen Öffentlichkeit.",
+        "Denn nach §29 HGB musst du als Unternehmen offiziell registriert und leicht überprüfbar sein.",
+        "Im Handelsregister finden Kunden und Geschäftspartner nämlich viele wichtige Infos wie Standort, Inhaber und Rechtsform über deine Bäckerei.",
+        "So können Sie sicher gehen, dass deine Bäckerei wirklich existiert, bevor Sie Geschäfte mit dir machen.",
+        "Außerdem musst du nach §37 A HGB deinen vollständigen Firmennamen auf Rechnungen, E-Mails und anderen Geschäftsbriefen schreiben.",
+        "So wissen deine Geschäftspartner mit wem Sie es zu tun haben.",
+        "Nachdem das erledigt ist, beginnt deine Bäckerei zu florieren.",
+        "Doch irgendwann möchtest du als Bäckermeister auch in den wohlverdienten Ruhestand gehen und deine Tochter soll das Geschäft übernehmen.",
+        "Muss sie dann einen neuen Namen wählen?",
+        "Zum Glück nicht.",
+        "Denn hier greift der Grundsatz der Firmen Beständigkeit.",
+        "Er erlaubt das Unternehmen, ihren Namen auch nach einem Inhaberwechsel beizubehalten.",
+        "Das ist nicht nur praktisch, weil ganz viel Bürokram wegfällt, sondern auch sinnvoll.",
+        "Deine Kunden behalten einen vertrauten Namen und es gibt keine unnötige Verwirrung oder dadurch entstehende Umsatzeinbußen.",
+        "Deine Tochter kann also weiterhin vom guten Ruf der Bäckerei profitieren.",
+        "Aber wie sieht es mit dem Namen aus, wenn eine neue Bäckerei mit einem ganz ähnlichen Namen eröffnet?",
+        "Eines Tages eröffnet nämlich eine neue Bäckerei gleich um die Ecke, mit dem Namen Gold, Kruste und Co.",
+        "Ist das erlaubt?",
+        "Nein.",
+        "Denn laut der Firmenunterscheidbarkeit muss sich der Firmenname deutlich von bestehenden Unternehmen am selben Standort unterscheiden.",
+        "Sonst könnten Kunden versehentlich beim falschen Geschäft kaufen.",
+        "Oder Behörden würden womöglich Bestellungen, Rechnungen oder sogar Mahnungen an die falsche Firma schicken.",
+        "Du kannst also beruhigt sein.",
+        "Gold, Kruste und Co. ist zu ähnlich und das Handelsregister würde den Namen nicht zulassen.",
+        "Eine neue Bäckerei mit dem Namen Müllers Backstube wäre hingegen völlig in Ordnung.",
+        "Aufgrund des Erfolgs deiner Bäckerei möchtest du nun weitere Niederlassungen mit den Namen Meisters, Kruste und Süßesünde Backhauser öffnen.",
+        "Klingt kreativ, ist aber nicht erlaubt.",
+        "Nach dem Grundsatz der Firmeneinheit in §17 HGB darf ein Unternehmen nicht mehrere unterschiedliche Firmennamen haben.",
+        "So ist auch keiner verwirrt.",
+        "Die Kunden wissen mit wem sie Geschäfte machen und das Finanzamt kann wichtige Dokumente wie Steuer- und Buchungsunterlagen richtig zuordnen.",
+        "Das bedeutet, du kannst nur weitere Niederlassungen unter dem Namen Gold, Kruste eröffnen.",
+        "Prima! Neben dem richtigen Namen ist auch die Wahl der richtigen Betriebsform wichtig.",
+        "Welche Formen es gibt, zeigen wir dir hier im Video."
+    };
+
+    public void OnGet() { }
+}

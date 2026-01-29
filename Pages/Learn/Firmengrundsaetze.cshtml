@@ -1,0 +1,42 @@
+@page
+@model FirmengrundsaetzeModel
+@{
+    ViewData["Title"] = "Firmengrundsaetze";
+}
+
+<div class="container py-5">
+    <h1 class="mb-4">Firmengrundsaetze</h1>
+
+    <div class="mb-4">
+        <h2 class="h5">1) Video</h2>
+        <video controls width="100%">
+            <source src="/learn/firmen/video.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="h5">2) Audio</h2>
+        <audio controls>
+            <source src="/learn/firmen/audio.mp3" type="audio/mpeg" />
+        </audio>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="h5">3) Word document</h2>
+        <a class="btn btn-outline-primary" href="/learn/firmen/firmengrundsaetze.docx">Download DOCX</a>
+    </div>
+
+    <hr />
+
+    <div class="mt-4">
+        <h2 class="h5">Transcript (DE)</h2>
+        <div class="text-muted">German sentences (bold).</div>
+        <div class="mt-3">
+            @foreach (var sentence in Model.Sentences)
+            {
+                <div class="mb-1"><strong>@sentence</strong></div>
+                <div class="text-muted" style="font-size:12px">──────────</div>
+            }
+        </div>
+    </div>
+</div>
