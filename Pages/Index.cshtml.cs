@@ -130,6 +130,8 @@ public class IndexModel : PageModel
             var line = raw.Trim();
             if (line.Length == 0) continue;
             if (line.StartsWith("WEBVTT")) continue;
+            if (line.StartsWith("Kind:", StringComparison.OrdinalIgnoreCase)) continue;
+            if (line.StartsWith("Language:", StringComparison.OrdinalIgnoreCase)) continue;
             if (Regex.IsMatch(line, "^\\d+$")) continue;
             if (Regex.IsMatch(line, "\\d{2}:\\d{2}:\\d{2}\\.\\d{3} -->")) continue;
             if (line.StartsWith("NOTE")) continue;
