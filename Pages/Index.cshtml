@@ -1,0 +1,35 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "YouTube to Text";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-3">YouTube → Text (DE)</h1>
+            <p class="text-muted">Paste a YouTube URL prefixed with <strong>1313</strong>. We will fetch auto-subs in German and show only the text.</p>
+
+            <form method="post" class="card card-body shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label" for="url">YouTube URL (must start with 1313)</label>
+                    <input class="form-control" id="url" name="InputUrl" value="@Model.InputUrl" placeholder="1313https://www.youtube.com/watch?v=..." required />
+                </div>
+                <button type="submit" class="btn btn-primary">Get Text</button>
+            </form>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Error))
+            {
+                <div class="alert alert-danger mt-3">@Model.Error</div>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(Model.ResultText))
+            {
+                <div class="mt-4">
+                    <h2 class="h5">Transcript</h2>
+                    <textarea class="form-control" rows="16" readonly>@Model.ResultText</textarea>
+                </div>
+            }
+        </div>
+    </div>
+</div>
