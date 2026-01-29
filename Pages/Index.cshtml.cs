@@ -32,11 +32,13 @@ public class IndexModel : PageModel
         }
 
         var url = InputUrl.Trim();
-        if (url.StartsWith("1313"))
+        if (!url.StartsWith("1313"))
         {
-            url = url[4..].Trim();
+            Error = "Invalid URL.";
+            return Page();
         }
 
+        url = url[4..].Trim();
         if (!IsValidYoutubeUrl(url))
         {
             Error = "Please provide a valid YouTube URL.";
