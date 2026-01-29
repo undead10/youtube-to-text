@@ -25,13 +25,18 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (string.IsNullOrWhiteSpace(InputUrl) || !InputUrl.StartsWith("1313"))
+        if (string.IsNullOrWhiteSpace(InputUrl))
         {
-            Error = "URL must start with 1313.";
+            Error = "Please provide a YouTube URL.";
             return Page();
         }
 
-        var url = InputUrl[4..].Trim();
+        var url = InputUrl.Trim();
+        if (url.StartsWith("1313"))
+        {
+            url = url[4..].Trim();
+        }
+
         if (!IsValidYoutubeUrl(url))
         {
             Error = "Please provide a valid YouTube URL.";
@@ -116,7 +121,9 @@ public class IndexModel : PageModel
 
     private static string ExtractTextFromVtt(string vtt)
     {
-        var sb = new StringBuilder();
+        var output = new List<string>();
+        string? last = null;
+
         var lines = vtt.Split('\n');
         foreach (var raw in lines)
         {
@@ -127,12 +134,17 @@ public class IndexModel : PageModel
             if (Regex.IsMatch(line, "\\d{2}:\\d{2}:\\d{2}\\.\\d{3} -->")) continue;
             if (line.StartsWith("NOTE")) continue;
 
-            line = Regex.Replace(line, "<[^>]+>", string.Empty);
+            line = Regex.Replace(line, "<[^>]+>", string.Empty).Trim();
             if (line.Length == 0) continue;
-            sb.AppendLine(line);
+            if (string.Equals(line, last, StringComparison.Ordinal)) continue;
+
+            output.Add(line);
+            last = line;
         }
 
-        return Regex.Replace(sb.ToString(), "(\n){3,}", "\n\n").Trim();
+        var joined = string.Join(" ", output);
+        joined = Regex.Replace(joined, "\\s+", " ").Trim();
+        return joined;
     }
 
     private static string QuoteArg(string arg)
