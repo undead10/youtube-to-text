@@ -54,11 +54,17 @@ public class IndexModel : PageModel
                 url
             };
 
+            var ytDlpPath = "/usr/local/bin/yt-dlp";
+            if (!System.IO.File.Exists(ytDlpPath))
+            {
+                ytDlpPath = "yt-dlp";
+            }
+
             var proc = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "yt-dlp",
+                    FileName = ytDlpPath,
                     Arguments = string.Join(' ', args.Select(QuoteArg)),
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
