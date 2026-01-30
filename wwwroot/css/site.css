@@ -1,15 +1,22 @@
+:root {
+  --bg: #f7f9fc;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #1b6ec2;
+  --primary-hover: #155aa0;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  --shadow-soft: 0 4px 14px rgba(17, 24, 39, 0.06);
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
 html {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  html { font-size: 16px; }
 }
 
 html {
@@ -19,4 +26,93 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+p.text-muted, .text-muted {
+  color: var(--muted) !important;
+}
+
+.card {
+  border: none;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.card.card-body {
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .card.card-body { padding: 1.5rem; }
+}
+
+.form-control, textarea.form-control {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  transition: box-shadow 180ms var(--ease), border-color 180ms var(--ease);
+}
+
+.form-control:focus {
+  border-color: #c7ddf6;
+  box-shadow: 0 0 0 .2rem rgba(37, 140, 251, 0.15);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), background-color 160ms var(--ease);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(27, 110, 194, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Mobile usability improvements */
+@media (max-width: 576px) {
+  .container.py-5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  h1 { font-size: 1.6rem; line-height: 1.2; }
+  .btn-primary { width: 100%; }
+  .form-label { font-weight: 600; }
+  textarea.form-control { min-height: 260px; }
+}
+
+/* Subtle animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 420ms var(--ease), transform 420ms var(--ease);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
