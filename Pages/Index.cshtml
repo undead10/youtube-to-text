@@ -4,29 +4,37 @@
     ViewData["Title"] = "YouTube to Text";
 }
 
-<div class="container py-5">
+<div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <h1 class="mb-3 fade-up">YouTube → Text (DE)</h1>
-            <p class="text-muted fade-up">Paste a YouTube URL. We will fetch auto-subs in German and show only the text.</p>
+            <p class="text-muted mb-4 fade-up stagger-1">Paste a YouTube URL. We will fetch auto-subs in German and show only the text.</p>
 
-            <form method="post" class="card card-body shadow-sm fade-up">
+            <form method="post" class="card card-body shadow-sm fade-up stagger-2">
                 <div class="mb-3">
                     <label class="form-label" for="url">YouTube URL</label>
-                    <input class="form-control" id="url" name="InputUrl" value="@Model.InputUrl" placeholder="https://www.youtube.com/watch?v=..." required />
+                    <input class="form-control" id="url" name="InputUrl" value="@Model.InputUrl" 
+                           placeholder="https://www.youtube.com/watch?v=..." required 
+                           autocomplete="off" autocorrect="off" autocapitalize="off" />
                 </div>
-                <button type="submit" class="btn btn-primary">Get Text</button>
+                <button type="submit" class="btn btn-primary">
+                    <span>✨</span>
+                    <span>Get Text</span>
+                </button>
             </form>
 
             @if (!string.IsNullOrWhiteSpace(Model.Error))
             {
-                <div class="alert alert-danger mt-3 fade-up">@Model.Error</div>
+                <div class="alert alert-danger mt-3 fade-up">
+                    <span>⚠️</span>
+                    <span>@Model.Error</span>
+                </div>
             }
 
             @if (!string.IsNullOrWhiteSpace(Model.ResultText))
             {
                 <div class="mt-4 fade-up">
-                    <h2 class="h5">Transcript</h2>
+                    <h2 class="h5 mb-3">📝 Transcript</h2>
                     <textarea class="form-control" rows="16" readonly>@Model.ResultText</textarea>
                 </div>
             }
